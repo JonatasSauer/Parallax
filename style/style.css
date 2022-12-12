@@ -1,0 +1,56 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    perspective: 2px; /*---proporção do eixo z---*/
+    transform-style: preserve-3d; /*---Manter os elementos filhos em 3d com espaço indicado---*/
+}
+
+.secao{
+    margin: 50px;
+    position: relative;/*---Posição baseada pelo elemento pai---*/
+    height: 100vh;
+    min-height: 700px; /* ---Altura minima de ajuste---*/
+    transform-style: inherit; /*---Herança do elemento pai---*/
+}
+
+.secao::before{
+    content: " "; /*o conteudo permanecerá */
+    position: absolute; /*----permanece com a mesma posiçao do elemento pai*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10; /*Profundidade do eixo z para trás*/
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; /*Eixo x e y no centro*/
+    transform: translatez(-1px) scale(1.5); /*--- Escala um pouco mais aproximada e eixos x e y -1px para trás*/
+
+}
+
+.conteudo{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 80%;
+    padding: 20px 10px;
+    background-color: rgba(111, 112, 114, 0.8);
+    color: #fff;
+    text-align: justify;
+    transform: translate(-50%);
+    font-size: 20px;
+    box-shadow: 15px 11px 17px #888;
+}
+
+.fundo1::before{
+    background-image: url(../img/foto2.jpg) ;
+}
+
+.fundo2::before{
+    background-image: url(../img/foto3.jpg);
+}
